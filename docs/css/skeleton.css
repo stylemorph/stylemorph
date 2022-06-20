@@ -420,3 +420,10 @@ there.
 .has-text-centered {
   text-align: center!important;
 }
+
+.author-link {
+  text-align: center!important;
+  font-size: 2em;
+  text-decoration: none;
+  color: black
+}
