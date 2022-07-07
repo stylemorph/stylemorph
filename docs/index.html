@@ -25,11 +25,17 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="css/video-comparison.css"> -->
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <script type="text/javascript" src="synchronize.js"></script>
+  <script type="text/javascript" src="video-comparison.js"></script>
+  
 </head>
 <body>
 
@@ -37,6 +43,14 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
+      <div class="vcs_wrapper" data-loop="true">
+        <video muted autoplay loop>
+              <source src="videos/interpolations/ffhq/azi.mp4" type="video/mp4">
+        </video>
+        <video muted autoplay loop>
+              <source src="videos/interpolations/ffhq/ellipsoid.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="has-text-centered" style="margin-top: 5%">
         <h1 class="section-heading">StyleMorph</h1>
         <p>Disentangling Shape, Pose and Appearance through 3D Morphable Image and Geometry Generation</p>
