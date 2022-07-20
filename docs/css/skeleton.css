@@ -427,3 +427,9 @@ there.
   text-decoration: none;
   color: black
 }
+
+.verticalcenter {
+  display: table-cell;
+  height: 200px;
+  vertical-align: middle;
+}
