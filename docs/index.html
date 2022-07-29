@@ -105,7 +105,7 @@
         <h3 class="section-heading">Abstract</h3>
         <p>We introduce StyleMorph, a 3D generative model 
           that relies on the 3D morphable model paradigm to disentangle shape, pose, object and scene texture for high quality image synthesis.
-          We represent 3D shape variability through 3D deformation fields with respect to a canonical object template.Both the deformations and the template are expressed as implicit networks and learned in an unsupervised manner only from 2D image supervision. We connect 3D morphable modelling with deferred neural rendering by performing an implicit surface rendering of ``Template Object Coordinates'' (TOCS), thereby constructing a purely geometric,  deformation-equivariant 2D signal that reflects the compounded geometric effects of non-rigid shape, pose, and perspective projection. We use TOCS maps in tandem with object and background appearance codes
+          We represent 3D shape variability through 3D deformation fields with respect to a canonical object template. Both the deformations and the template are expressed as implicit networks and learned in an unsupervised manner only from 2D image supervision. We connect 3D morphable modelling with deferred neural rendering by performing an implicit surface rendering of ``Template Object Coordinates'' (TOCS), thereby constructing a purely geometric,  deformation-equivariant 2D signal that reflects the compounded geometric effects of non-rigid shape, pose, and perspective projection. We use TOCS maps in tandem with object and background appearance codes
           to condition a StyleGAN-based deferred neural rendering (DNR) network for high-resolution image synthesis.
           We show competitive photorrealistic image synthesis results on 4 datasets (FFHQ faces, AFHQ Cats, Dogs, Wild), while achieving 
           the joint disentanglement of shape, pose, object and scene texture.</p>
@@ -117,6 +117,7 @@
       <div class="has-text-centered" style="margin-top: 8%">
         <h3 class="section-heading">Method</h3>
         <img src="images/pipeline.png" width="100%"/>
+        <p>Our method trains on an unstructured collection of RGB images. We learn a generative model that <b>(i)</b> disentangles camera, shape and foreground/background appearance, <b>(ii)</b> expresses shape variability through deformations and <b>(iii)</b> efficiently generates high resolution, realistic images.</p>
         <p>We model canonical shape as a signed distance function in template space, and warp it using a non-rigid shape deformation <img src="images/z_s.png" width=19>. We render template coordinates using camera pose (<b>φ</b>, <b>θ</b>),
           and perspective projection, to produce a rendered 2D Template Object Coordinate System (TOCS). The 2D TOCS maps are passed into a Deferred Neural Rendering network together with latent codes for foreground
           and background appearance (<img src="images/z_fg.png" width=24>, <img src="images/z_bg.png" width=24>) to produce high-resolution photorrealistic images trained by a discriminator network.</p>
@@ -127,6 +128,7 @@
     <div class="row">
       <div class="has-text-centered" style="margin-top: 8%">
         <h3 class="section-heading">TOCS representation</h3>
+        <p>We warp camera rays from world to template space and use differentiable rendering to produce “Template Object Coordinates” (TOCS). TOCS maps provide dense image-to-template object correspondences. They reflect the compounded effects of non-rigid shape, pose, and perspective projection, but are appearance-agnostic. They feed into a Deferred Neural Renderer together with latent codes for foreground and background appearance to produce photorrealistic images.</p>
         <p>Drag the slider to reveal the TOCS maps underlying our image synthesis</p>
       </div>
     </div>
@@ -157,7 +159,9 @@
     <div class="row">
       <div class="has-text-centered" style="margin-top: 8%">
         <h3 class="section-heading">Results</h3>
-        <p>Our image synthesis model allows independent control over foreground, background, shape and pose.</p>
+        <p>Our approach uses separate latent codes for shape, background and foreground appearance. By varying codes in one latent space and holding the others fixed, our model exhibits disentangled synthesis with independent control over each factor of variation,
+          in addition to 3D-consistent camera pose control.</p>
+        <p>Below we show interpolation results from varying each factor of control on FFHQ and AFHQ datasets.</p>
       </div>
     </div>
     <div class="row has-text-centered" style="margin-top: 3%">
