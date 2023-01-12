@@ -81,12 +81,7 @@
     <div class="row">
       <div class="has-text-centered" style="margin-top: 8%">
         <h3 class="section-heading">Abstract</h3>
-        <p>We introduce StyleMorph, a 3D generative model 
-          that relies on the 3D morphable model paradigm to disentangle shape, pose, object and scene texture for high quality image synthesis.
-          We represent 3D shape variability through 3D deformation fields with respect to a canonical object template. Both the deformations and the template are expressed as implicit networks and learned in an unsupervised manner only from 2D image supervision. We connect 3D morphable modelling with deferred neural rendering by performing an implicit surface rendering of ``Template Object Coordinates'' (TOCS), thereby constructing a purely geometric,  deformation-equivariant 2D signal that reflects the compounded geometric effects of non-rigid shape, pose, and perspective projection. We use TOCS maps in tandem with object and background appearance codes
-          to condition a StyleGAN-based deferred neural rendering (DNR) network for high-resolution image synthesis.
-          We show competitive photorrealistic image synthesis results on 4 datasets (FFHQ faces, AFHQ Cats, Dogs, Wild), while achieving 
-          the joint disentanglement of shape, pose, object and scene texture.</p>
+        <p>We introduce StyleMorph, a 3D-aware generative model that disentangles 3D shape, camera pose, object appearance, and background appearance for high quality image synthesis. We account for shape variability by morphing a canonical 3D object template, effectively learning a 3D morphable model in an entirely unsupervised manner through backprop. We chain 3D morphable modelling with deferred neural rendering by performing an implicit surface rendering of “Template Object Coordinates” (TOCS), which can be understood as an unsupervised counterpart to UV maps. This provides a detailed 2D TOCS map signal that reflects the compounded geometric effects of non-rigid shape variation, camera pose, and perspective projection. We combine 2D TOCS maps with an independent appearance code to condition a StyleGAN-based deferred neural rendering (DNR) network for foreground image (object) synthesis; we use a separate code for background synthesis and do late fusion to deliver the final result. We show competitive synthesis results on 4 datasets (FFHQ faces, AFHQ Cats, Dogs, Wild), while achieving the joint disentanglement of shape, pose, object and background texture.</p>
       </div>
     </div>
   </div>
